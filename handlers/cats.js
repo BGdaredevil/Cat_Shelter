@@ -1,17 +1,30 @@
 // const path = require("path");
 // const fs = require("fs");
 
+const getData = require("../utils/dataParser.js").getData;
 const parser = require("../utils/urlParser.js");
 const fsReader = require("../utils/fsReader.js");
 
 const routes = {
   "add-breed": (inp, out, urlData) => {
     const method = inp.method;
-    fsReader.read(out, method, "../views/addBreed.html");
+    if (method === "GET") {
+      fsReader.read(out, method, "../views/addBreed.html");
+    }
+    if (method === "POST") {
+      console.log("Method is post");
+      let data = getData(inp);
+    }
   },
   "add-cat": (inp, out, urlData) => {
     const method = inp.method;
-    fsReader.read(out, method, "../views/addCat.html");
+    if (method === "GET") {
+      fsReader.read(out, method, "../views/addCat.html");
+    }
+    if (method === "POST") {
+      console.log("Method is post");
+      let data = getData(inp);
+    }
   },
   // '/': (inp, out) => {},
 };

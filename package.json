@@ -22,7 +22,16 @@
   "devDependencies": {
     "nodemon": "^2.0.12"
   },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "*.json"
+    ],
+    "delay": 500
+  },
   "dependencies": {
+    "formidable": "^1.2.2",
     "uniqid": "^5.4.0"
   }
 }

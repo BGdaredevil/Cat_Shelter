@@ -1,6 +1,7 @@
 const http = require("http");
 
 const handler = require("./handlers");
+const db = require("./db/db-controller.js");
 
 // const parser = require("./utils/urlParser.js");
 
