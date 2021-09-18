@@ -1,0 +1,23 @@
+{
+  "name": "cat_shelter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BGdaredevil/Cat_Shelter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BGdaredevil/Cat_Shelter/issues"
+  },
+  "homepage": "https://github.com/BGdaredevil/Cat_Shelter#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
