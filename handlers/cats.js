@@ -4,6 +4,8 @@
 const getData = require("../utils/dataParser.js").getData;
 const parser = require("../utils/urlParser.js");
 const fsReader = require("../utils/fsReader.js");
+const Cat = require("../models/cat-model.js");
+const db = require("../db/db-controller.js");
 
 const routes = {
   "add-breed": (inp, out, urlData) => {
@@ -23,7 +25,18 @@ const routes = {
     }
     if (method === "POST") {
       console.log("Method is post");
-      let data = getData(inp);
+      getData(inp)
+        .then((ref) => {
+          let newCat = new Cat({ ...ref.fields, image: ref.image });
+          db.addCat(newCat).then(() => {
+            out.statusCode = 302;
+            out.setHeader("Location", "/");
+            out.end();
+          });
+        })
+        .catch((res) => {
+          console.log(res);
+        });
     }
   },
   // '/': (inp, out) => {},

@@ -21,7 +21,7 @@ const getBreedsList = () => {
 };
 
 const addBreed = (breed) => {
-  getBreedsList()
+  return getBreedsList()
     .then((br) => {
       br.push(breed);
       return br;
@@ -32,7 +32,7 @@ const addBreed = (breed) => {
 };
 
 const removeBreed = (breed) => {
-  getBreedsList()
+  return getBreedsList()
     .then((br) => {
       br = br.filter((x) => x != breed);
       return br;
@@ -47,7 +47,7 @@ const getCatList = () => {
 };
 
 const addCat = (cat) => {
-  getCatList()
+  return getCatList()
     .then((c) => {
       c.push(cat);
       return c;
@@ -56,7 +56,7 @@ const addCat = (cat) => {
 };
 
 const removeCat = (catId) => {
-  getCatList()
+  return getCatList()
     .then((cats) => {
       cats = cats.filter((c) => c.id != catId);
       return cats;

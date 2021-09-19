@@ -1,12 +1,12 @@
 const uniqid = require("uniqid");
 
 class Cat {
-  constructor(name, desc, imageRef, breed) {
+  constructor(input) {
     this.id = uniqid();
-    this.name = name;
-    this.description = desc;
-    this.image = imageRef;
-    this.breed = breed;
+    this.name = input.name;
+    this.description = input.description;
+    this.image = input.image;
+    this.breed = input.breed;
   }
 
   set name(str) {
@@ -86,4 +86,4 @@ class Cat {
   }
 }
 
-exports.catClass = Cat;
+module.exports = Cat;
