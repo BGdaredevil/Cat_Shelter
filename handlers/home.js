@@ -3,11 +3,13 @@
 
 const parser = require("../utils/urlParser.js");
 const fsReader = require("../utils/fsReader.js");
+const homeView = require("./viewEngine.js").homeView;
 
 const routes = {
   "/": (inp, out, urlData) => {
     const method = inp.method;
-    fsReader.read(out, method, "../views/home/index.html");
+    // fsReader.read(out, method, "../views/home/index.html");
+    homeView(out);
   },
   // '/': (inp, out) => {},
 };

@@ -25,7 +25,7 @@ function mainRouter(req, res) {
   const pathName = urlInfo.pathname;
   const urlTokens = pathName.match(/[^\/]+/g);
   let firstToken;
-
+  // console.log(urlTokens);
   if (urlTokens === null) {
     firstToken = "/";
   } else {

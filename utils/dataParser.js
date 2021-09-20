@@ -22,19 +22,23 @@ const getData = (input) => {
 
   return new Promise((resolve, reject) => {
     form.parse(input, (err, field, file) => {
+      // console.log(field);
+      // console.log(file);
       const theData = { fields: field };
       if (err) {
         reject(err);
       }
-
-      if (validateFileExt(file.upload)) {
-        fs.unlinkSync(file.upload.path);
-        reject("invalid file");
-        return;
+      if (file.upload.name !== undefined) {
+        if (validateFileExt(file.upload)) {
+          fs.unlinkSync(file.upload.path);
+          reject("invalid file");
+          return;
+        }
+        const filename = file.upload.name.replace(/\s/g, "-");
+        fs.renameSync(file.upload.path, path.join(__dirname, `../content/images/${filename}`));
+        theData.image = path.join(__dirname, `../content/images/${filename}`);
       }
-      const filename = file.upload.name.replace(/\s/g, "-");
-      fs.renameSync(file.upload.path, path.join(__dirname, `../content/images/${filename}`));
-      theData.image = path.join(__dirname, `../content/images/${filename}`);
+      console.log(file.upload.name);
       resolve(theData);
     });
   });

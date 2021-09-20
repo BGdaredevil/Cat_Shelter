@@ -15,7 +15,14 @@ const routes = {
     }
     if (method === "POST") {
       console.log("Method is post");
-      let data = getData(inp);
+      getData(inp).then((data) => {
+        data = data.fields.breed;
+        db.addBreed(data).then(() => {
+          out.statusCode = 302;
+          out.setHeader("Location", "/");
+          out.end();
+        });
+      });
     }
   },
   "add-cat": (inp, out, urlData) => {

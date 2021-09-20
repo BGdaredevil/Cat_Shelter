@@ -23,7 +23,9 @@ const getBreedsList = () => {
 const addBreed = (breed) => {
   return getBreedsList()
     .then((br) => {
-      br.push(breed);
+      if (!br.includes(breed)) {
+        br.push(breed);
+      }
       return br;
     })
     .then((br) => {

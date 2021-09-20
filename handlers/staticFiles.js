@@ -22,6 +22,7 @@ module.exports = (req, res) => {
   }
 
   if (pathName.includes("images")) {
+    console.log(urlInfo);
     routes["images"](req, res, urlInfo);
     return false;
   }
